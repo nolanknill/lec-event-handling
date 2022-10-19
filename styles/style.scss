@@ -5,7 +5,20 @@
 .page {
   padding: 1rem;
 
+  &--clicked {
+    background-color: purple;
+  }
+
   &__title {
     font-size: 2rem;
+  }
+}
+
+.todos {
+  &__item {
+    &--completed {
+      text-decoration: line-through;
+      color: purple;
+    }
   }
 }

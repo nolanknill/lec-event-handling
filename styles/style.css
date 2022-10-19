@@ -1,0 +1,19 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+.page {
+  padding: 1rem;
+}
+.page--clicked {
+  background-color: purple;
+}
+.page__title {
+  font-size: 2rem;
+}
+
+.todos__item--completed {
+  text-decoration: line-through;
+  color: purple;
+}/*# sourceMappingURL=style.css.map */
