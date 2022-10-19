@@ -1,0 +1,11 @@
+@use "./partials/mixins" as *;
+@use "./partials/variables" as *;
+@use "./partials/global";
+
+.page {
+  padding: 1rem;
+
+  &__title {
+    font-size: 2rem;
+  }
+}
