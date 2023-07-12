@@ -47,6 +47,8 @@ for (let i = 0; i <= tvShows.length - 1; i++) {
     Input: show will contain { Title, Rating, Image }
     
     Output: Element object that looks like:
+*/
+/*
     <article class="tv-show">
         <h2 class="tv-show__title">${show.title}</h2>
         <span class="tv-show__rating">Rating: ${show.rating}</span>
@@ -75,4 +77,33 @@ function createTvShowElement(show) {
     showEl.appendChild(coverEl);
 
     return showEl;
+}
+
+
+/* 
+    TODO: When a tv-show is clicked, add a border to the element to show that it is featured 
+*/
+
+/* 
+    1. Grab all elements: 
+        const tvShows = querySelectorAll(".tv-show")
+    2. Loop through tv shows
+        3. On each tv show -> addEventListener("click")
+        4. Event handler: add a class to the tv show we're currently looking at within the loop
+            "tv-show--active"
+*/
+
+const allShows = document.querySelectorAll(".tv-show");
+for (let i = 0; i < allShows.length; i++) {
+    const currentShowEl = allShows[i];
+
+    currentShowEl.addEventListener("click", function(event) {
+        const activeShow = document.querySelector(".tv-show--active");
+        // activeShow will either be null (falsey) or an object (truthy)
+        if (activeShow && currentShowEl !== activeShow) {
+            activeShow.classList.remove("tv-show--active");
+        }
+
+        currentShowEl.classList.toggle("tv-show--active");
+    });
 }
