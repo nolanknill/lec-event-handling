@@ -1,45 +1,60 @@
 const tvShows = [
     {
-        title: "Breaking Bad",
-        genres: ["Drama", "Thriller"],
-        cast: ["Aaron Paul", "Bryan Cranston"],
-        "theme-song": "Let Them Cook",
-        releaseYear: 2008,
-        runLength: 45,
-        rating: 10,
-        imageSrc: "/assets/images/breaking-bad.jpeg"
+        title: "Suits",
+        "number-of-episodes": 100,
+        genres: ["drama", "legal"],
+        numberOfSeasons: 10,
+        castMembers: ["Gabriel Macht", "Patrick J. Adams", "Meghan, Duchess of Sussex"],
+        year: 2011,
+        rating: 8,
+        imageSrc: "/assets/images/suits.jpg"
     },
     {
-        title: "House of the Dragon",
-        genres: ["Fantasy", "Drama"],
-        cast: ["Milly Alcock", "Emma D'Arcy", "Matt Smith"],
-        "theme-song": "Game of Thrones (Original)",
-        releaseYear: 2022,
-        runLength: 50,
-        rating: 10,
-        imageSrc: "/assets/images/house-of-the-dragon.jpeg"
+        title: "Game of Thrones",
+        "number-of-episodes": 60,
+        genres: ["fantasy", "disappointing finish"],
+        numberOfSeasons: 8,
+        castMembers: ["Thor Bjornsson", "Kit Harrington",  "Emilia Clarke"],
+        year: 2011,
+        rating: 2,
+        imageSrc: "/assets/images/game-of-thrones.jpeg"
     },
     {
-        title: "Squid Game",
-        genres: ["Thriller", "Horror"],
-        cast: ["HoYeon Jung", "Lee Jung-jae", "Gong Yoo"],
-        "theme-song": "Squid Games (Original)",
-        releaseYear: 2021,
-        runLength: 50,
-        rating: 10,
-        imageSrc: "/assets/images/squid-game.jpeg"
+        title: "Teletubbies",
+        "number-of-episodes": 365,
+        genres: ["educational", "children"],
+        numberOfSeasons: 2,
+        castMembers: ["Red", "Yellow",  "Green", "Purple"],
+        year: 2001,
+        rating: 8.91,
+        imageSrc: "/assets/images/teletubbies.jpeg"
     },
     {
-        title: "True Detective",
-        rating: 21,
-        imageSrc: "/assets/images/true-detective.png"
-    },
-];
+        title: "Rick & Morty",
+        rating: 10,
+        imageSrc: "/assets/images/rick-and-morty.png"
+    }
+]
 
 /* Add all TV Shows to the tv-shows element */
 const tvShowsEl = document.getElementById("tv-shows");
 for (let i = 0; i <= tvShows.length - 1; i++) {
     const showEl = createTvShowElement(tvShows[i]);
+
+    showEl.addEventListener("click", function(event) {
+        const favShow = document.querySelector(".tv-show--favourited");
+
+        if (favShow === null) {
+            event.target.classList.add("tv-show--favourited");
+        } else {
+            favShow.classList.remove("tv-show--favourited");
+
+            if (favShow !== event.target) {
+                event.target.classList.add("tv-show--favourited");
+            }
+        }
+    })
+
     tvShowsEl.appendChild(showEl);
 }
 

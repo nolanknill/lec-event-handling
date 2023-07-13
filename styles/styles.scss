@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 .tv-shows {
     display: flex;
     flex-direction: column;
@@ -12,6 +16,16 @@
     margin-bottom: 1rem;
     padding: 1rem;
     border-radius: 0.25rem;
+    border: 0.25rem solid #ddd;
+    cursor: pointer;
+
+    &:hover {
+        border-color: goldenrod;
+    }
+
+    &--favourited {
+        border-color: gold;
+    }
 
     &__title {
         margin: 0;
